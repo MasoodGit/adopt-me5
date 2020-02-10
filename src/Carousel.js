@@ -18,7 +18,7 @@ class Carousel extends Component {
     return { photos };
   }
 
-  handleIndexClick() {
+  handleIndexClick(event) {
     this.setState({
       active: +event.target.dataset.index
     });
@@ -32,12 +32,13 @@ class Carousel extends Component {
         <div className="carousel-smaller">
           {photos.map((photo, index) => (
             <img
+              id={photo}
               key={photo}
               src={photo}
               className={index === active ? "active" : ""}
-              alt="animal thumbnail"
               onClick={this.handleIndexClick}
               data-index={index}
+              alt="animal thumbnail"
             />
           ))}
         </div>
